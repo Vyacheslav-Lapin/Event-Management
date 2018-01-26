@@ -64,7 +64,6 @@ public class EventServiceManagementTests {
 
     @Test
     public void updateEventTest() {
-        venueRepository.deleteAll();
         ValidLocation location = getSecondValidLocation();
         validLocationRepository.save(location);
         Event event = getEvent();
@@ -108,7 +107,6 @@ public class EventServiceManagementTests {
 
     @Test(expected = ValidationException.class)
     public void negativeTestForUpdateEventWithNotAvailableLocationForTheSpecificDate() {
-        venueRepository.deleteAll();
         Event event = getEvent();
         Event savedEvent = eventRepository.save(event);
         eventManagementService.update(toEventDtoWithId(savedEvent));

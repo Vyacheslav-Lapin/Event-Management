@@ -33,6 +33,7 @@ public class EventManagementServiceImpl implements EventManagementService {
     }
 
     @Override
+    @Transactional
     public Event save(EventDto eventDto) {
         validate(eventDto);
         return eventManagementRepository.save(toEvent(eventDto));
